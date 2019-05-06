@@ -1,10 +1,9 @@
-const inquirer = require("inquirer");
+const inquirer = require("inquirer"); // Needs to enter into the console
 
-const purchaseConsole = require("../console/purchase");
-const allConsole = require("../console/all");
-const clearConsole = require("../console/clear");
-const reportConsole = require("../console/report");
+// Сonsole command logic
+const consoleCommands = require("../console/index");
 
+// Input handler
 const askQuestions = () => {
   const questions = [
     {
@@ -15,6 +14,7 @@ const askQuestions = () => {
   return inquirer.prompt(questions);
 };
 
+// Main function
 exports.run = async () => {
   while (true) {
     // Ask questions
@@ -35,19 +35,27 @@ exports.run = async () => {
     // Branching by commands
     switch (arr[0]) {
       case "purchase":
-        purchaseConsole.createPurchase(arr);
+        consoleCommands.purchase(arr);
         break;
+
       case "all":
-        allConsole.all();
+        consoleCommands.all();
         break;
+
       case "clear":
-        clearConsole.clear(arr);
+        consoleCommands.clear(arr);
         break;
+
       case "report":
-        reportConsole.conversion(arr);
+        consoleCommands.report(arr);
         break;
+
+      case "--help":
+        consoleCommands.help();
+        break;
+
       default:
-        console.log(arr[0] + " is not a function");
+        console.log(arr[0] + " is not a function, try --help for details");
     }
   }
 };
