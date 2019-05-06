@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser"); // Needs in parsing incoming request bodies
 
 const configs = require("./config/app"); // General application configs
-const consoleInit = require("./core/consoleInit"); // Console commands logic
+const consoleInit = require("./core/consoleStart"); // Console entre point
 const routes = require("./routes/index");
 
 const app = express(); // Create instance of server
@@ -25,3 +25,5 @@ app.listen(configs.port, configs.host, () => {
   // Run the function to read information from the console.
   consoleInit.run();
 });
+
+module.exports = app;
