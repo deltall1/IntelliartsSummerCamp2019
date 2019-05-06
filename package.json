@@ -4,20 +4,24 @@
   "description": "Summer Camp 2019 competition project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-api": "mocha",
+    "start": "node app.js"
   },
   "author": "Andrey Alekseev",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^2.4.2",
     "dotenv-defaults": "^1.0.2",
     "express": "^4.16.4",
-    "figlet": "^1.2.1",
     "inquirer": "^6.3.1",
     "mysql2": "^1.6.5",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "sequelize": "^5.8.2",
-    "sequelize-cli": "^5.4.0",
+    "sequelize-cli": "^5.4.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
   }
 }
