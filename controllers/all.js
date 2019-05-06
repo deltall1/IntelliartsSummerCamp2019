@@ -1,5 +1,6 @@
 const productService = require("../services/product");
 
 exports.all = async (req, res) => {
-  res.send(await productService.allPurchases());
+  // Send information about all purchases
+  res.status(200).send(await productService.allPurchases());
 };
