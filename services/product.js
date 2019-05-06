@@ -1,12 +1,16 @@
 const Product = require("../database/models").Product;
 const sequelize = require("../core/database");
 
-// Create a record in the database
+/*
+ * This file contains the logic for working with the Product entity
+ */
+
+// Create a record in the database ^
 exports.create = data => {
   return Product.create(data);
 };
 
-// Find records in a database on the specified date
+// Find records in a database on the specified date ^
 exports.findByDate = date => {
   return Product.findAll({ where: { date } }).map(products => {
     return products.dataValues;
@@ -51,18 +55,6 @@ exports.allPurchases = () => {
     return { date: date, products: allProducts };
   });
 };
-
-// NOT WORKING
-// exports.allPurchases = async () => {
-//   return await this.findAllDates().map(async date => {
-//     var allProducts = await Product.findAll({ where: { date }, raw: true }).map(
-//       products => {
-//         return products;
-//       }
-//     );
-//     return { date: date, products: allProducts };
-//   });
-// };
 
 // Delete purchases on the specified date
 exports.deleteForDate = date => {
